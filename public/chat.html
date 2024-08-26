@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Chat personal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="information-bubble">
+    <h3 class="d-flex justify-content-between">
+      <span>
+        Status:
+        <small class="hidden" id="status-online">online</small> 
+        <small class="hidden" id="status-offline">offline</small>
+      </span> 
+
+      <span>
+        User:
+        <small id="userName"></small>
+      </span>
+    </h3>
+    
+
+    <h3>Connected users</h3>
+    <ul id="userList"></ul>
+  </div>
+
+  <div class=" row p-4 justify-content-between">
+    <div class="row col-8">
+      <input class="col-6" placeholder="Create or join rooms" type="text" id="inputRoom">
+
+      <button type="button" class="col-2 offset-1 btn btn-primary" id="btnCreate">Create</button>
+      <button type="button" class="col-2 offset-1 btn btn-primary" id="btnJoin">Join</button>
+
+    </div>
+    <select class="form-select col-3" aria-label="Default select example" id="listRoom">
+    </select>
+  </div>
+
+  <!-- Ubicación del chat -->
+  <div class="bottom-right">
+
+
+    <!-- Chat -->
+    <div class="chat">
+
+      <!-- Información del contacto -->
+      <div class="contact bar">
+
+        <div class="pic global" id="chatIcon"></div>
+
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="name" id="route"></div>
+            <div class="seen">
+              Today at 12:45 a.m.
+            </div>
+          </div>
+          <button type="button" id="buttonGeneral" disabled class="btn btn-danger">Leave room</button>
+        </div>
+      </div>
+
+      <div class="messages" id="chat">
+      </div>
+
+      <!-- Inputs y Forms -->
+      <form class="input" id="formChat">
+        <input placeholder="Write your message here..." type="text" id="inputChat"/>
+        <i class="fas fa-paper-plane"></i>
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+  <!-- Scripts -->
+  <script src="socket.io/socket.io.js"></script>
+  <script src="js/chat.js" type="module"></script>
+
+</body>
+
+</html>
